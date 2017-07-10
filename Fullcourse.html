@@ -1,0 +1,178 @@
+<title>全部课程</title>
+<div class="wrapper">
+	<div class="c-FC_box">
+		<div class="c-FC_wra">
+			<div class="c-FC_left left">
+				<div class="c-FC_ulBox">
+					<ul class="c-FC_ul c-FC_uls">
+						<script id="c-FC_uls" type="text/html">
+							<li>
+								<a href="javascript:void(0);" schoolid='${id}'>
+									<h2>${name}
+									<span>
+										<i class="icon iconfont icon-xiangyou-copy" style="font-size:16px;"></i>
+									</span>
+								</h2>
+								</a>
+								<div class="aa" style="display: none;">
+									<ul>
+
+										{{each child}}
+										<li class="LiA">
+											<a href="javascript:void(0);">${$value.college_name}</a>
+											<i class="c-FC_figure right">${$value.num}</i>
+											<div class="aaa" style="display: none;">
+												<ul>
+													{{each child}}
+													<li style="font-size:12px;" class="LiAs">
+														<a href="javascript:void(0);">${$value.major_name}</a>
+														<!--<i class="c-FC_figure right">1</i>-->
+													</li>
+													{{/each}}
+												</ul>
+											</div>
+										</li>
+										{{/each}}
+									</ul>
+								</div>
+							</li>
+						</script>
+					</ul>
+				</div>
+			</div>
+			<div class="c-FC_right right">
+				<div class="c-FC_ulBox">
+					<ul class="c-FC_ulvedio c-FC_ul">
+						<li>
+							<a href="#outline">
+								<div class="c-FC-vedio_Box left">
+									<img src="" />
+									<div class="c-FC_biaoqian">
+										<h5>随到随学（共3节）</h5>
+									</div>
+								</div>
+								<div class="c-FC-vedio_t left">
+									<h2>课程名称</h2>
+									<p>课程简介课程简介课程简介课程简介课程简介课程简介</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#outline">
+								<div class="c-FC-vedio_Box left">
+									<img src="" />
+									<div class="c-FC_biaoqian">
+										<h5>随到随学（共3节）</h5>
+									</div>
+								</div>
+								<div class="c-FC-vedio_t left">
+									<h2>课程名称</h2>
+									<p>课程简介课程简介课程简介课程简介课程简介课程简介</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#outline">
+								<div class="c-FC-vedio_Box left">
+									<img src="" />
+									<div class="c-FC_biaoqian">
+										<h5>随到随学（共3节）</h5>
+									</div>
+								</div>
+								<div class="c-FC-vedio_t left">
+									<h2>课程名称</h2>
+									<p>课程简介课程简介课程简介课程简介课程简介课程简介</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#outline">
+								<div class="c-FC-vedio_Box left">
+									<img src="" />
+									<div class="c-FC_biaoqian">
+										<h5>随到随学（共3节）</h5>
+									</div>
+								</div>
+								<div class="c-FC-vedio_t left">
+									<h2>课程名称</h2>
+									<p>课程简介课程简介课程简介课程简介课程简介课程简介</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#outline">
+								<div class="c-FC-vedio_Box left">
+									<img src="" />
+									<div class="c-FC_biaoqian">
+										<h5>随到随学（共3节）</h5>
+									</div>
+								</div>
+								<div class="c-FC-vedio_t left">
+									<h2>课程名称</h2>
+									<p>课程简介课程简介课程简介课程简介课程简介课程简介</p>
+								</div>
+							</a>
+						</li>
+						<li>
+							<a href="#outline">
+								<div class="c-FC-vedio_Box left">
+									<img src="" />
+									<div class="c-FC_biaoqian">
+										<h5>随到随学（共3节）</h5>
+									</div>
+								</div>
+								<div class="c-FC-vedio_t left">
+									<h2>课程名称</h2>
+									<p>课程简介课程简介课程简介课程简介课程简介课程简介</p>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var fCw = $('.c-FC_box').width();
+	var cFcLeftw = fCw * 0.3 - 42;
+	var cFcRight = fCw * 0.7 - 42;
+	$(".c-FC_left").width(cFcLeftw);
+	$(".c-FC_right").width(cFcRight);
+	
+	$('.c-FC_ul li').live('click', function() {
+		$(this).siblings().find('.aa').hide('slow');
+		$(this).find('.aa').show(450);
+		//return false;
+	});
+	$(".LiA").live('click', function() {
+		$(this).siblings().find('.aaa').hide('slow');
+		$(this).find('.aaa').show(450);
+		//return false;
+	});
+</script>
+<script type="text/javascript">
+	$.ajax({
+		type: "get",
+		url: "http://mooc.suuweb.cn/api.php/Public/ScmMenu",
+		dataType: 'JSON',
+		success: function(data) {
+			for(var i = 0; i < data.data.length; i++) {
+				$("#c-FC_uls").tmpl(data.data[i]).appendTo(".c-FC_uls");
+
+			}
+		}
+	});
+	$.ajax({
+		type: "get",
+		url: "http://mooc.suuweb.cn/api.php/CourseManage",
+		dataType: 'JSON',
+		success: function(data) {
+			console.log(data);
+		}
+	});
+	$(".LiAs").live('click', function() {
+		var s = $(this).find("a").text();
+		console.log(s);
+	});
+</script>

@@ -1,0 +1,230 @@
+<title>交通学院下课聊</title>
+<div class="wrapper outline-wrapper">
+	<div class="c-chart_wra">
+		<div class="c-chart_wraBox">
+			<div class="c-chart_left left">
+				<div class="c-chart_leftNavUl">
+					<a href="#chart">下课聊&nbsp;></a>
+					<a href="#chartCon" style="color:#6495ED">帖子详情</a>
+				</div>
+				<div class="c-chart_ZD_Box chart_Con">
+					<script id="chart_Con" type="text/html">
+						<h3>${forum_title}
+						<a href="javascript:void(0);" id="c-chartCon_send">回复</a>
+						<span class="c-chartCon_id">${forum_user.user_name}</span>						
+					</h3>
+						<div style="width: 100%;font-size:16px;padding: 15px 15px 15px 30px;">
+							${forum_content}
+						</div>
+						<div class="c-chart_textBox">
+							<textarea id="c-chart_textBox">
+								
+							</textarea>
+							<a href="javascript:;" class="c-sends">提交</a>
+						</div>
+					</script>
+				</div>
+				<div class="c-chartCon_TZ_Box">
+					<ul class="chart_forumcomment">
+						<script id="chart_forumcomment" type="text/html">
+							<li>
+								<div class="c-chart_Box">
+									<div class="c-chart_PuserN left">
+										<img src="http://mooc.suuweb.cn${forumcomment_user.user_avatar}" />
+										<h4 id="forumUser">${forumcomment_user.user_name}</h4>
+										<span>${forumcomment_user.user_level}级</span>
+									</div>
+									<div class="c-chart_PuserC left">
+										<div class="c-chart_PuserCc">
+											${forumcomment_content}
+										</div>
+										<div class="c-chartCon_time">
+											<h6>
+												<span id="DZ" forumcomment_id="${forumcomment_id}">${forumcomment_like}&nbsp;点赞</span>
+												<span>${forumcomment_floor}楼</span>
+												<span>${forumcomment_createtime}</span>											
+											</h6>
+											<a href="javascript:void(0);" class="c-send">回复</a>
+										</div>
+
+										<div class="c-chart_textBox">
+											<textarea id="c-chart_textBoxs">
+											
+											</textarea>
+											<a href="javascript:;" class="c-sendss" userid="${forumcomment_userid}" forumid="${forumcomment_id}">提交</a>
+										</div>
+										<div class="c-chart-secUser">
+											<div class="c-chart_secUserBox">
+												{{each forumcomment_replay}}
+												<ul>
+													<li><img src="http://mooc.suuweb.cn${forumcomment_user.user_avatar}" /></li>
+													<li class="forumUser">${$value.forumcomment_user.user_name}:</li>
+													<li>${$value.forumcomment_content}</li>
+												</ul>
+												<h6>
+													<span id="DZ" forumcomment_id="${$value.forumcomment_id}">${$value.forumcomment_like}&nbsp;点赞</span>
+													<span>${$value.forumcomment_floor}楼</span>
+													<span>${$value.forumcomment_createtime}</span>											
+												</h6>
+												<a href="javascript:void(0);" class="c-send">回复</a>
+												{{/each}}
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+						</script>
+					</ul>
+				</div>
+			</div>
+			<div class="c-chart_right right">
+				<div class="c-chart_userImg">
+					<img src="" />
+					<h4 id="chartUser">用户ID</h4>
+					<span>xx级</span>
+				</div>
+				<div class="c-chart_userT">
+					<ul>
+						<li class="MyForumNum">
+							<h5><a href="#user">我的帖子</a></h5>
+							<script id="MyForumNum" type="text/html">
+								<span>${data}</span>
+							</script>
+						</li>
+						<li>
+							<h5>回复我的</h5>
+							<span>1</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="re">
+	<script id="re" type="text/html">
+		${forumcomment_user.user_name}
+	</script>
+</div>
+<script type="text/javascript">
+	$('.c-chart_right').height($('.c-chart_left').height() + 400);
+
+	$(".c-send").live('click', function() {
+		$(this).toggle();
+		$(this).parent().parent().find(".c-chart_textBox").toggleClass('c-chart_textBox_AC');
+		$('.c-chart_PuserN').height($('.c-chart_PuserC').height());
+		return false;
+	});
+	$("#c-chartCon_send").live('click', function() {
+		$(this).toggle();
+		$(this).parent().parent().find(".c-chart_textBox").toggleClass('c-chart_textBox_AC');
+		$('.c-chart_PuserN').height($('.c-chart_PuserC').height());
+		return false;
+	});
+	$(".c-sends").live('click', function() {
+		$(".c-send").show();
+		$(".c-chart_textBox").removeClass("c-chart_textBox_AC");
+		$('.c-chart_PuserN').height($('.c-chart_PuserC').height());
+		return false;
+	});
+</script>
+<script>
+	//获取登录后的用户信息
+	var username = sessionStorage.getItem("username"); //用户名
+	var uid = sessionStorage.getItem("uid"); //用户id
+	var forum_id = sessionStorage.getItem("fid"); //帖子id
+	if(username) {
+		$("#chartUser").html(username);
+	} else {
+		alert("您还没登录!")
+	}
+
+	$.ajax({
+		type: "post",
+		url: "http://mooc.suuweb.cn/api.php/BBS/ForumOne",
+		dataType: 'JSON',
+		data: {
+			forumid: forum_id
+		},
+		success: function(data) {
+			//console.log(data);
+			$("#chart_Con").tmpl(data.data[0]).appendTo(".chart_Con");
+			for(var i = 1; i < data.data.length; i++) {
+				$("#chart_forumcomment").tmpl(data.data[i]).appendTo(".chart_forumcomment");
+				console.log(data.data[i]);
+			}
+			$('.c-chart_PuserN').height($('.c-chart_Box').height());
+		}
+	});
+	//我的帖子的数量
+	$.ajax({
+		type: "post",
+		url: "http://mooc.suuweb.cn/api.php/BBS/MyForumNum",
+		data: {
+			uid: uid
+		},
+		dataType: 'JSON',
+		success: function(data) {
+			console.log(data);
+			$("#MyForumNum").tmpl(data).appendTo(".MyForumNum");
+		}
+	});
+	//点赞功能
+	$("#DZ").live('click',function(){
+		$(this).addClass("DZ_active");
+		var commentid = $(this).attr("forumcomment_id");
+		console.log(commentid);
+		$.ajax({
+			type:"get",
+			url:"http://mooc.suuweb.cn/api.php/BBS/CommentLike",
+			data:{
+				commentid:commentid,
+				uid:uid
+			},
+			dataType:'JSON',
+			success:function(data){
+				console.log(data);
+			}
+		});
+	});
+	//帖子评论功能
+	$(".c-sends").live('click', function() {
+		var content = $("#c-chart_textBox").val();
+		
+		$.ajax({
+			type: "post",
+			url: "http://mooc.suuweb.cn/api.php/BBS/ForumComment",
+			dataType: 'JSON',
+			data: {
+				parent_id: forum_id,
+				uid: uid,
+				content: content
+			},
+			success: function(data) {
+				//console.log(data);
+				alert(data.message);
+			}
+		});
+	});
+	//评论回复功能
+	$(".c-sendss").live('click',function(){
+		var content = $(this).parents(".c-chart_textBox").find("#c-chart_textBoxs").val();
+		var parentid = $(this).attr("forumid");
+		var userid = $(this).attr("userid");
+		$.ajax({
+			type: "post",
+			url: "http://mooc.suuweb.cn/api.php/BBS/ForumReply",
+			dataType: 'JSON',
+			data: {
+				uid:uid,//回复者id
+				content:content,//回复内容
+				parentid:parentid,//评论id
+				userid:userid//评论者id
+			},
+			success: function(data) {
+				//console.log(data);
+				alert(data.message);
+			}
+		});
+	});
+</script>

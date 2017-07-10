@@ -1,0 +1,42 @@
+<title>课程视频</title>
+<div class="wrapper">
+	<div class="c-vedio_wra">
+		<div class="c-video_H">
+			<h3><span><i class="icon iconfont icon-tubiaozhizuomoban-" style="font-size:20px;"></i>目录</span><span>课程题目</span></h3>
+		</div>
+		<div class="c-vedio_menu">
+			<ul>
+				<h2>第一章<span>章节名称</span></h2>
+				<a href="javascript:;"><li>第一节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第二节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第三节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第四节<span>课程名称</span><span>xx分钟</span></li></a>
+			</ul>
+			<ul>
+				<h2>第二章<span>章节名称</span></h2>
+				<a href="javascript:;"><li>第一节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第二节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第三节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第四节<span>课程名称</span><span>xx分钟</span></li></a>
+			</ul>
+			<ul>
+				<h2>第三章<span>章节名称</span></h2>
+				<a href="javascript:;"><li>第一节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第二节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第三节<span>课程名称</span><span>xx分钟</span></li></a>
+				<a href="javascript:;"><li>第四节<span>课程名称</span><span>xx分钟</span></li></a>
+			</ul>
+		</div>
+		<video controls>
+			<source src="vedio/CSSH.mp4" type="video/mp4">
+		</video>
+	</div>
+</div>
+<script type="text/javascript">
+	$(".c-video_H h3 span:first").click(function(){
+		$(".c-vedio_menu").toggleClass("c-vedio_menu_active");
+	});
+	$(".c-vedio_menu>ul>a").live('click',function(){
+		$(this).addClass("Aactive").siblings().removeClass("Aactive")
+	});
+</script>

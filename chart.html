@@ -1,0 +1,202 @@
+
+<title>交通学院下课聊</title>
+<div class="wrapper outline-wrapper">
+	<div class="c-chart_wra">
+		<div class="c-chart_wraBox">
+			<div class="c-chart_left left">
+				<div class="c-chart_leftNavUl">
+					<ul class="chartMen">
+						<script id="chartMen" type="text/html">
+							<li>
+								<a href="javascript:void(0);" plate-id="${plate_id}" plate-sort="${plate_sort}">${plate_name}</a>
+							</li>
+						</script>
+					</ul>
+				</div>
+				<div class="c-chart_ZD_Box">
+					<h3><span>置顶</span>一个帖子的题目一个帖子的题目</h3>
+				</div>
+				<div class="c-chart_TZ_Box">
+					<ul class="chartCon">
+						<script id="chartCon" type="text/html">
+							<li forum-id="${forum_id}" id="chartLi">
+								<a href="#chartCon">
+									<div class="c-chart_TZtitle">
+										<div class="c-chart_title left">
+											<h3>${forum_title}</h3>
+										</div>
+										<div class="c-chart_user left">
+											<h4><i class="icon iconfont icon-icon" style="font-size:16px;"></i>${user_name}</h4>
+										</div>
+									</div>
+									<div class="c-chart_TZCon">
+										<div class="c-chart_con left">
+											<span id="c-chart_con">
+											${forum_content}
+											<img src="" />
+											</span>
+										</div>
+										<div class="c-chart_time left">
+											<i class="icon iconfont icon-shijian" style="font-size:16px;"></i>${forum_createtime}
+										</div>
+									</div>
+									<div class="c-chart_imgBox">
+										<ul>
+											<li><img src="http://mooc.suuweb.cn${user_avatar}" /></li>
+										</ul>
+									</div>
+								</a>
+							</li>
+						</script>
+					</ul>
+				</div>
+				<!--发表帖子 START-->
+				<div class="c-chart_sendBox">
+					<div class="c-chart_sendT">
+						<input type="text" name="sendTile" id="sendTile" value="" placeholder="请填写标题" />
+						<select class="chartMens">
+							<script id="chartMens" type="text/html">
+								<option plate-sort="${plate_sort}" plate-id="${plate_id}">${plate_name}</option>
+							</script>
+						</select>
+					</div>
+					<textarea name="content" style="width:993px;height:200px;visibility:hidden;" ></textarea>
+					<button id="btn" class="z-chartSubmit">提交</button>
+				</div>
+				<!--发表帖子 END-->
+			</div>
+			<div class="c-chart_right right">
+				<div class="c-chart_userImg">
+					<a href="#mycenter"><img /></a>
+					<h4><a href="#id" id="chartUser">用户ID</a></h4>
+					<span>xx级</span>
+				</div>
+				<div class="c-chart_userT">
+					<ul>
+						<li class="MyForumNum">
+							<h5><a href="#user">我的帖子</a></h5>
+							<script id="MyForumNum" type="text/html">
+								<span>${data}</span>
+							</script>
+						</li>
+						<li>
+							<h5><a href="#user">回复我的</h5>
+							<span>1</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	var editor;
+	KindEditor.ready(function(K) {
+		editor = K.create('textarea[name="content"]', {
+			resizeType : 1,
+			allowPreviewEmoticons : false,
+			allowImageUpload : false,
+			items : [
+				'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+				'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+				'insertunorderedlist', '|', 'emoticons', 'image', 'link']
+		});
+	});
+</script>
+<script type="text/javascript">
+	$('.c-chart_right').height($('.c-chart_left').height() + 30);
+
+	$(".c-chart_leftNavUl ul li").click(function() {
+		$(this).addClass("c-chart_leftNavUlActive").siblings().removeClass("c-chart_leftNavUlActive");
+	});
+</script>
+
+<script>
+	//获取登录后的用户信息
+	
+	var uid = sessionStorage.getItem("uid");
+	var username = sessionStorage.getItem("username");
+	var userimg = sessionStorage.getItem("userimg");
+	if(username) {
+		$("#chartUser").html(username);
+		$(".c-chart_userImg a img").attr("src","http://mooc.suuweb.cn"+userimg);
+	} else {
+		alert("您还没登录!")
+	}
+	//获取菜单
+	$.ajax({
+		type: "get",
+		url: "http://mooc.suuweb.cn/api.php/BBS/PlateList",
+		dataType: 'JSON',
+		success: function(data) {
+			//console.log(data);
+			for(var i = 0; i < data.data.length; i++) {
+				$("#chartMen").tmpl(data.data[i]).appendTo(".chartMen");
+				$("#chartMens").tmpl(data.data[i]).appendTo(".chartMens");
+			}
+		}
+	});
+	//获取帖子
+	$.ajax({
+		type: "get",
+		url: "http://mooc.suuweb.cn/api.php/BBS/ForumManage",
+		dataType: 'JSON',
+		success: function(data) {
+			//console.log(data);
+			for(var i = 0; i < data.data.length; i++) {
+								console.log(data.data[i]);
+				$("#chartCon").tmpl(data.data[i]).appendTo(".chartCon");
+			}
+		}
+	});
+	$("#chartLi").live('click', function() {
+		var forum_id = $(this).attr("forum-id");
+		sessionStorage.setItem("fid", forum_id);
+	});
+	//我的帖子的数量
+	$.ajax({
+		type: "post",
+		url: "http://mooc.suuweb.cn/api.php/BBS/MyForumNum",
+		data: {
+			uid: uid
+		},
+		dataType: 'JSON',
+		success: function(data) {
+			//console.log(data);
+			$("#MyForumNum").tmpl(data).appendTo(".MyForumNum");
+		}
+	});
+	//置顶贴
+	$.ajax({
+		type:"get",
+		url:"http://mooc.suuweb.cn/api.php/BBS/ForumTop",
+		dataType:'JSON',
+		data:{
+			uid:uid
+		},
+		success:function(data){
+			
+		}
+	});
+	//发表帖子
+	$(".z-chartSubmit").live('click', function() {
+		var plateid = $('select').find("option:selected").attr("plate-id");
+		var forum_title = $('#sendTile').val();
+		var forum_content = editor.text();
+		console.log(forum_content)
+		$.ajax({
+			type: "post",
+			url: "http://mooc.suuweb.cn/api.php/BBS/ForumAdd",
+			dataType: 'JSON',
+			data: {
+				forum_title: forum_title,
+				forum_content: forum_content,
+				uid: uid,
+				plateid: plateid
+			},
+			success: function(data) {
+				alert(data.message);
+			}
+		});
+	});
+</script>

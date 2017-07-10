@@ -1,0 +1,118 @@
+<link rel="stylesheet" href="./zcy-style.css/public.css" />
+<link rel="stylesheet" href="./zcy-style.css/question.css" />
+<link rel="stylesheet" href="./font/iconfont.css" />
+<link type="text/css" href="zcy-style.css/selectpick.css" rel="stylesheet" />
+<script src="js/src/selectpick.js"></script>
+<title></title>
+<script type="text/javascript">
+	$(function() {
+		$('.z-hdRt select').each(function() {
+			$(this).selectpick({
+				container: '.z-hdRt',
+				onSelect: function(value, text) {}
+			});
+		})
+		$('.selectpick_icon').click(function() {
+			$(this).hide();
+		})
+	});
+</script>
+<!-- 内容部分开始 -->
+<div id="z-main">
+	<div class="z-hd z-clearfix">
+		<div class="z-hdRt z-fl z-clearfix">
+
+			<select id="z-test_1">
+				<option>请选择</option>
+				<option value="1">测试1</option>
+				<option value="2">测试2</option>
+				<option value="3" selected>测试3</option>
+				<option value="4">测试4</option>
+				<option value="5">测试5</option>
+				<option value="6">测试6</option>
+				<option value="7">测试7</option>
+
+			</select>
+			<select id="z-test_2">
+				<option>请选择</option>
+				<option value="1">测试1</option>
+				<option value="2">测试2</option>
+				<option value="3" selected>测试3</option>
+				<option value="4">测试4</option>
+				<option value="5">测试5</option>
+				<option value="6">测试6</option>
+				<option value="7">测试7</option>
+
+			</select>
+			<select id="z-test_3">
+				<option>请选择</option>
+				<option value="1">测试1</option>
+				<option value="2">测试2</option>
+				<option value="3" selected>测试3</option>
+				<option value="4">测试4</option>
+				<option value="5">测试5</option>
+				<option value="6">测试6</option>
+				<option value="7">测试7</option>
+
+			</select>
+			<select id="z-test_4">
+				<option>请选择</option>
+				<option value="1">测试1</option>
+				<option value="2">测试2</option>
+				<option value="3" selected>测试3</option>
+				<option value="4">测试4</option>
+				<option value="5">测试5</option>
+				<option value="6">测试6</option>
+				<option value="7">测试7</option>
+
+			</select>
+		</div>
+
+		<div class="z-hdLt z-fl">开始检索</div>
+	</div>
+	<div class="z-Ft ti">
+		<script id="ti" type="text/html">
+			<div class="z-questions">
+				<div class="z-ftRt z-fl">
+					<img src="" alt="" />
+				</div>
+				<div class="z-ftLt z-fl">
+					<h4>${exampaper_name}</h4>
+					<p>${exampaper_description}</p>
+					<p>
+						<a style="color:white" href="#testpaper" class="beginA" target="_blank"
+							sid="${exampaper_id}" courseid="${exampaper_courseid}">
+							开始做题
+						</a>
+					</p>
+				</div>
+			</div>
+		</script>
+	</div>
+</div>
+<script src="js/question.js"></script>
+<script type="text/javascript">
+	var uid = sessionStorage.getItem("uid");
+	$.ajax({
+		type: 'get', //提交的方式
+		url: 'http://mooc.suuweb.cn/api.php/ExampaperList', //请求地址
+		data: {
+			uid: uid
+		},
+		dataType: 'JSON',
+		success: function(data) {
+			console.log(data);
+			if(uid) {
+				for(var i = 0; i < data.data.length; i++) {
+					console.log(data.data[i].exampaper_name);
+					console.log(data.data[i].exampaper_id);			//试卷id
+					console.log(data.data[i].exampaper_courseid);	//课程id
+					$("#ti").tmpl(data.data[i]).appendTo(".ti");
+				}
+			} else {
+				alert("您还没有登录!");
+			}
+		}
+	})
+</script>
+<!-- 内容部分结束 -->

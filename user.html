@@ -1,0 +1,484 @@
+<link rel="stylesheet" href="./zcy-style.css/user.css" />
+<link rel="stylesheet" href="./zcy-style.css/public.css" />
+<link rel="stylesheet" href="font2/iconfont.css" />
+<title>个人主页</title>
+<!--内容部分-->
+<div id="z-main">
+	<div class="z-mainHd z-clearfix">
+		<div class="z-mainHL z-fl">
+			<span class="z-mainPic">
+						<img src="./1.jpg" style="border-radius:50%;width:100%;height:100%" />
+					</span>
+		</div>
+		<div class="z-mainHR z-fl">
+			<div class="z-mainMsghd">
+				<div><i class="iconfont icon-weibiaoti104"></i>编辑资料</div>
+			</div>
+			<div class="z-mainMsgft">
+				<div id="chartUser">用户ID</div>
+				<div>xx级</div>
+			</div>
+		</div>
+	</div>
+	<div class="z-mainFt z-clearfix">
+		<ul class="z-course z-fl">
+			<li class="z-topic-list">我的课程</li>
+			<li class="z-topic-list">我的下课聊</li>
+			<li class="z-topic-list">我的题库</li>
+			<li class="z-topic-list">我的成绩</li>
+			<div class="z-border"></div>
+		</ul>
+		<div class="z-content z-fl">
+
+			<!--我的课程开始-->
+			<div class="z-mainMc z-topic-listItem">
+				<div class="z-MD z-mcTop">
+					<h4>正在进行</h4>
+					<ul>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<a href="">课程名称</a>
+							</div>
+						</li>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<a href="">课程名称</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="z-MD z-mcMid">
+					<h4>已经结束</h4>
+					<ul>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<a href="">课程名称</a>
+							</div>
+						</li>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<a href="">课程名称</a>
+							</div>
+						</li>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<a href="">课程名称</a>
+							</div>
+						</li>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<a href="">课程名称</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="z-MD z-mcBot">
+
+					<h4>尚未开始</h4>
+					<ul class=" z-clearfix">
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<a href="">课程名称</a>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+			<!--我的课程结束-->
+			
+			<!--我的下课聊-我的帖子部分开始-->
+			<div class="z-mainMp z-topic-listItem z-clearfix">
+				<ul class="z-posts z-clearfix">
+					<li class="z-card z-fl">
+						<a href="javascrit:void(0)">我的帖子</a>
+					</li>
+					<li class="z-card z-fl">
+						<a href="javascrit:void(0)">回复我的</a>
+					</li>
+					<div class="z-smallBar"></div>
+				</ul>
+				<div class="z-details z-sue z-show z-clearfix MyForum">
+					<script id="MyForum" type="text/html">
+					<div>
+						<span class="z-fl">在<a href="">${forum_plateid}板块</a>发帖 <a href="">${forum_title}</a></span>
+						<span class="z-fr">${forum_createtime}</span>
+					</div>
+					</script>					
+				</div>
+				<div class="z-details z-back ">
+					<div class="z-backList z-clearfix">
+						<div class="z-left z-fl">
+							<div class="z-list-hd">
+								<span>某某人&nbsp;:&nbsp;</span>
+								<span>什么话题</span>
+							</div>
+							<div class="z-list-ft">
+								<span>回复了我的话题 :"</span>
+								<span>帖子的名称</span>
+								<span>" ＞</span>
+								<span>某某版块</span>
+							</div>
+						</div>
+						<div class="z-right z-fr">
+							<div class="z-list-hd">
+								<span>2017-01-01 09:25</span>
+							</div>
+							<div class="z-list-ft z-fr">
+								<span>回复</span>
+							</div>
+						</div>
+					</div>
+					<div class="z-backList z-clearfix">
+						<div class="z-left z-fl">
+							<div class="z-list-hd">
+								<span>某某人&nbsp;:&nbsp;</span>
+								<span>什么话题</span>
+							</div>
+							<div class="z-list-ft">
+								<span>回复了我的话题 :"</span>
+								<span>帖子的名称</span>
+								<span>" ＞</span>
+								<span>某某版块</span>
+							</div>
+						</div>
+						<div class="z-right z-fr">
+							<div class="z-list-hd">
+								<span>2017-01-01 09:25</span>
+							</div>
+							<div class="z-list-ft z-fr">
+								<span>回复</span>
+							</div>
+						</div>
+					</div>
+					<div class="z-backList z-clearfix">
+						<div class="z-left z-fl">
+							<div class="z-list-hd">
+								<span>某某人&nbsp;:&nbsp;</span>
+								<span>什么话题</span>
+							</div>
+							<div class="z-list-ft">
+								<span>回复了我的话题 :"</span>
+								<span>帖子的名称</span>
+								<span>" ＞</span>
+								<span>某某版块</span>
+							</div>
+						</div>
+						<div class="z-right z-fr">
+							<div class="z-list-hd">
+								<span>2017-01-01 09:25</span>
+							</div>
+							<div class="z-list-ft z-fr">
+								<span>回复</span>
+							</div>
+						</div>
+					</div>
+					<div class="z-backList z-clearfix">
+						<div class="z-left z-fl">
+							<div class="z-list-hd">
+								<span>某某人&nbsp;:&nbsp;</span>
+								<span>什么话题</span>
+							</div>
+							<div class="z-list-ft">
+								<span>回复了我的话题 :"</span>
+								<span>帖子的名称</span>
+								<span>" ＞</span>
+								<span>某某版块</span>
+							</div>
+						</div>
+						<div class="z-right z-fr">
+							<div class="z-list-hd">
+								<span>2017-01-01 09:25</span>
+							</div>
+							<div class="z-list-ft z-fr">
+								<span>回复</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--我的下课聊-我的帖子结束-->
+
+			<!--我的题库开始-->
+			<div class="z-mainMr z-topic-listItem z-cleatfix">
+				<div class="z-topic">
+					<table class="Mytopic">
+						<tr>
+							<th>试题名</th>
+							<th>成绩</th>
+							<th>错题数</th>
+							<th>交题时间</th>
+						</tr>
+						<script id="Mytopic" type="text/html">
+						<tr>
+							<td>${exampaper_name}</td>
+							<td>${studentscore_score}</td>
+							<td>${error_num}</td>
+							<td>${studentscore_createtime}</td>
+						</tr>
+						</script>						
+					</table>
+				</div>
+				<div class="z-pagination">
+					<ul>
+						<li><span class="z-pre">上一页</span></li>
+						<li class="z-list">
+							<span>1</span>
+							<span>2</span>
+						</li>
+						<li><span class="z-next">下一页</span></li>
+					</ul>
+				</div>
+			</div>
+			<!--我的题库结束-->
+
+			<!--我的成绩开始-->
+			<div class="z-grade z-topic-listItem">
+				<div id="z-ONE">
+					<h4>大二第一学期</h4>
+					<ul class="z-clearfix">
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<div class="z-txtHd">
+									<h3 style="margin-left:10px;">船体结构 </h3>
+									<div class="z-result">
+										<p class="z-sole">
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>90</span>
+										</p>
+										<p>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>20</span>
+										</p>
+										<p>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>50</span>
+										</p>
+										<div class="z-cancel ">
+											<div>×</div>
+										</div>
+									</div>
+									<div class="z-in"></div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<div class="z-txtHd">
+									<h3 style="margin-left:10px;">船体结构 </h3>
+									<div class="z-result">
+										<p class="z-sole">
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>90</span>
+										</p>
+										<p>
+											<span>孙子</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>20</span>
+										</p>
+										<p>
+
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>50</span>
+										</p>
+										<div class="z-cancel ">
+											<div>×</div>
+										</div>
+									</div>
+									<div class="z-in"></div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<div class="z-txtHd">
+									<h3 style="margin-left:10px;">船体结构 </h3>
+									<div class="z-result">
+										<p class="z-sole">
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>90</span>
+										</p>
+										<p>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>20</span>
+										</p>
+										<p>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>50</span>
+										</p>
+										<div class="z-cancel ">
+											<div>×</div>
+										</div>
+									</div>
+									<div class="z-in"></div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div id="z-ONE">
+					<h4>大二第一学期</h4>
+					<ul class="z-clearfix">
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<div class="z-txtHd">
+									<h3 style="margin-left:10px;">船体结构 </h3>
+									<div class="z-result">
+										<p class="z-sole">
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>90</span>
+										</p>
+										<p>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>20</span>
+										</p>
+										<p>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>50</span>
+										</p>
+										<div class="z-cancel ">
+											<div>×</div>
+										</div>
+									</div>
+									<div class="z-in"></div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<div class="z-txtHd">
+									<h3 style="margin-left:10px;">船体结构 </h3>
+									<div class="z-result">
+										<p class='z-sole'>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>90</span>
+										</p>
+										<p>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>20</span>
+										</p>
+										<p>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>50</span>
+										</p>
+										<div class="z-cancel ">
+											<div>×</div>
+										</div>
+									</div>
+									<div class="z-in"></div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<img class="z-pic" src="" alt="" />
+							<div class="z-txt">
+								<div class="z-txtHd">
+									<h3 style="margin-left:10px;">船体结构 </h3>
+									<div class="z-result">
+										<p class='z-sole'>
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>90</span>
+										</p>
+										<p class="z-none">
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>20</span>
+										</p>
+										<p class="z-none">
+											<span>总成绩</span>&nbsp;&nbsp;:&nbsp;&nbsp;
+											<span>50</span>
+										</p>
+										<div class="z-cancel z-none">
+											<div>×</div>
+										</div>
+									</div>
+									<div class="z-in"></div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--我的成绩结束-->
+		</div>
+	</div>
+</div>
+<script>
+	//登录信息
+	var username = sessionStorage.getItem("username");	
+	if(username) {
+		$("#chartUser").html(username);
+	} else {
+		alert("您还没登录!")
+	}
+	//我的帖子与回复
+	$('.z-card').each(function() {
+		$('.z-card').live("click", function() {
+			var i = $(this).index();
+			$('.z-details').hide();
+			$('.z-details').eq(i).show();
+			$(this).siblings('.z-card').children().removeClass('selected');
+			$(this).children().addClass('selected');
+			$('.z-smallBar').css('left', 50 + i * 170);
+		});
+	});
+	
+	//我的成绩
+	$(function(){
+	$('.z-result .z-cancel').click(function(){
+		$(this).prevAll().not('.z-sole').hide();
+		$(this).css("display","none");
+		$(".z-in").removeClass("z-intro");
+	});
+	$('.z-in').each(function(){
+		$('.z-in').click(function(){
+			$(this).prev().children().show();
+			$(this).addClass("z-intro");
+		})
+	})
+	
+	})
+
+</script>
+<script>
+	//获取我的帖子
+	var uid = sessionStorage.getItem("uid");
+	$.ajax({
+		type:"get",
+		url:"http://mooc.suuweb.cn/api.php/BBS/MyForum",
+		data:{
+			uid:uid
+		},
+		dataType:'JSON',
+		success:function(data){
+			for(var i = 0;i<data.data.length;i++){
+				$("#MyForum").tmpl(data.data[i]).appendTo(".MyForum");
+			}
+		}
+	});
+	//我的题库
+	$.ajax({
+		type:"post",
+		url:"http://mooc.suuweb.cn/api.php/MyExampaper",
+		data:{
+			uid:uid
+		},
+		dataType:'JSON',
+		success:function(data){
+//			console.log(data);
+			for(var i = 0;i<data.data.length;i++){
+				$("#Mytopic").tmpl(data.data[i]).appendTo(".Mytopic")
+			}
+		}
+	});
+</script>

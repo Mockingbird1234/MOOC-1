@@ -1,0 +1,101 @@
+
+	<link rel="stylesheet" href="./zcy-style.css/search.css" />
+	<link rel="stylesheet" href="./zcy-style.css/public.css" />
+	<script src="https://cdn.bootcss.com/jquery/1.8.0/jquery.js"></script>	
+	<title></title>
+
+		<!--内容部分-->
+		<div id="z-main" class="z-clearfix">
+			<div class="z-mainHd z-clearfix">
+				<div class="z-pic z-fl"></div>
+				<div class="z-input z-fl">
+					<input type="text" / placeholder="搜索结果">
+				</div>
+				<div class="z-cancel z-fl"></div>
+				<div class="z-search z-fr">搜索</div>
+	
+			</div>
+			<div class="z-mainFt">
+				<div class="z-ftHd">
+					<span class="z-course">课程</span>
+					<span class="z-chat">下课聊</span>
+					<span class="z-qb">题库</span>
+					<div class="z-border"></div>
+				</div>
+				<div id="z-hunt">
+					<div class="z-ftBw z-seek">
+						<div class="z-ftCourse z-clearfix">						
+							<img class="z-ftPic z-fl "src="" alt="" / >			
+							<div class="z-ftCon z-fl">
+								<div class="z-name">课程名称</div>
+								<div class="z-intro">课程简介课程简介课程简介课程简介</div>
+							</div>
+						</div>
+						
+						<div class="z-ftCourse z-clearfix">						
+							<img class="z-ftPic z-fl "src="" alt="" / >			
+							<div class="z-ftCon z-fl">
+								<div class="z-name">课程名称</div>
+								<div class="z-intro">课程简介课程简介课程简介课程简介</div>
+							</div>
+						</div>
+					</div>
+					<div class="z-chart z-seek">
+						<div class="z-chartCn">
+							<h3>一个帖子的题目</h3>
+							<h4>一个帖子的内容一个帖子的内容一个帖子的内容</h4>
+							<div class="z-pic">
+								<img src="" alt="" />
+								<img src="" alt="" />
+							</div>
+						</div>
+						<div class="z-chartCn">
+							<h3>一个帖子的题目</h3>
+							<h4>一个帖子的内容一个帖子的内容一个帖子的内容</h4>
+							<div class="z-pic">
+								<img src="" alt="" />
+								<img src="" alt="" />
+							</div>
+						</div>
+						<div class="z-chartCn">
+							<h3>一个帖子的题目</h3>
+							<h4>一个帖子的内容一个帖子的内容一个帖子的内容</h4>
+							<div class="z-pic">
+								<img src="" alt="" />
+								<img src="" alt="" />
+							</div>
+						</div>
+					</div>
+					<div class="z-ftBw z-seek">
+						<div class="z-ftCourse z-clearfix">						
+							<img class="z-ftPic z-fl "src="" alt="" / >			
+							<div class="z-ftCon z-fl">
+								<div class="z-name">课程名称</div>
+								<div class="z-intro">课程简介课程简介课程简介课程简介</div>
+							</div>
+						</div>
+						
+						<div class="z-ftCourse z-clearfix">						
+							<img class="z-ftPic z-fl "src="" alt="" / >			
+							<div class="z-ftCon z-fl">
+								<div class="z-name">课程名称</div>
+								<div class="z-intro">课程简介课程简介课程简介课程简介</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			$(function(){
+				$(".z-ftHd span").click(function(){
+					var i = $(this).index();
+					$("#z-hunt .z-seek").hide();
+					$("#z-hunt .z-seek").eq(i).show();
+					$(".z-border").css("left",40+i*184);
+					$(this).css("color",'#02A8F3');
+					$(this).siblings().css("color",'black');
+				})		
+			})		
+		</script>
