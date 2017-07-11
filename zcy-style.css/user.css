@@ -241,7 +241,23 @@ color:#858585;
 .one{
 	color:red;
 }
-
+.z-del{
+	background:#02A8F3;
+	color:white;
+	width:60px;
+	height:30px;
+	border-radius:15px;
+	text-align: center;
+	margin-top:5px;
+	margin-left:40px;
+	font:15px/30px "微软雅黑";
+}
+#z-cl:hover{
+	cursor:pointer;
+}
+#chartUser{
+	width:150px;
+}
 #z-main .z-mainFt .z-content .z-posts li{
 	height: 69px;
 	font:20px "微软雅黑";

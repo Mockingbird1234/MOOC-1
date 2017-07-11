@@ -12,7 +12,7 @@
 		</div>
 		<div class="z-mainHR z-fl">
 			<div class="z-mainMsghd">
-				<div><i class="iconfont icon-weibiaoti104"></i>编辑资料</div>
+				<div id="z-cl"><i class="iconfont icon-weibiaoti104"></i>编辑资料</div>
 			</div>
 			<div class="z-mainMsgft">
 				<div id="chartUser">用户ID</div>
@@ -107,8 +107,9 @@
 				</ul>
 				<div class="z-details z-sue z-show z-clearfix MyForum">
 					<script id="MyForum" type="text/html">
-					<div>
+					<div >
 						<span class="z-fl">在<a href="">${forum_plateid}板块</a>发帖 <a href="">${forum_title}</a></span>
+						<span class="z-fr z-del">删除</span>
 						<span class="z-fr">${forum_createtime}</span>
 					</div>
 					</script>					
@@ -414,6 +415,17 @@
 	</div>
 </div>
 <script>
+		//修改资料
+		var a;
+		$('#z-cl').click(function(){
+			if(!a){
+				$(this).parent().next().children(":first").attr('contenteditable',true).css('border','2px solid red')
+			}else{
+				$(this).parent().next().children(":first").attr('contenteditable',false).css('border','none')
+			}
+			a =!a;
+		})
+	
 	//登录信息
 	var username = sessionStorage.getItem("username");	
 	if(username) {
